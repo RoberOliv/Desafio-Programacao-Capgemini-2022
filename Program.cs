@@ -1,14 +1,11 @@
 ﻿using System;
 using System.Text.RegularExpressions;
 
-
 namespace DesafioDeProgramacaoAcademiaCapgemini2022 {
 
     internal class Program {
 
         private static void Main(string[] args) {
-
-
             int selecao = 0;
 
             Console.WriteLine("Qual questao voce gostaria de abir?");
@@ -18,7 +15,6 @@ namespace DesafioDeProgramacaoAcademiaCapgemini2022 {
             selecao = Convert.ToInt32(Console.ReadLine());
 
             switch (selecao) {
-
                 case 1:
                     Console.WriteLine("Digite um numero");
                     PrimeiraQuestao(Convert.ToInt32(Console.ReadLine()));
@@ -33,15 +29,12 @@ namespace DesafioDeProgramacaoAcademiaCapgemini2022 {
                     Console.WriteLine("Digite qualquer palavra");
                     TerceiraQuestao(Console.ReadLine());
                     break;
-
-
             }
         }
 
         //Questão 01
 
         public static void PrimeiraQuestao(int entrada) {
-
             //Contador porque vamos colocar espacos vazios na mesma quantidade
             //da entrada so que na ultima casa vamos por o asterisco
             //no decorrer do codigo, essa casa diminui, ou seja, no primeiro loop
@@ -51,17 +44,12 @@ namespace DesafioDeProgramacaoAcademiaCapgemini2022 {
             int contador = entrada - 1;
 
             for (int i = 0; i < entrada; i++) {
-
                 //Loop que print os espacos vazios e os asteriscos no final da string
                 for (int j = 0; j < entrada; j++) {
-
                     if (j < contador) {
-
                         Console.Write(" ");
-
                     } else {
                         Console.Write("*");
-
                     }
                 }
                 Console.WriteLine();
@@ -70,9 +58,7 @@ namespace DesafioDeProgramacaoAcademiaCapgemini2022 {
                 //ele entrava na ultima casa, no proximo ele entra na penultima
                 //e no proximo na antepenultima e assim sucessivamente...
                 contador--;
-
             }
-
         }
 
         //Questão 02
@@ -84,7 +70,6 @@ namespace DesafioDeProgramacaoAcademiaCapgemini2022 {
         //Ter no minimo 1 caracter especial !@#$%^&*()-+
 
         public static void SegundaQuestao(string senha) {
-
             char[] senhaInadequada = senha.ToCharArray();
 
             bool val_Caracter = false;
@@ -107,15 +92,19 @@ namespace DesafioDeProgramacaoAcademiaCapgemini2022 {
 
             //Validacao de 1 minuscula
             for (int i = 0; i < senhaInadequada.Length; i++) {
-                if (senhaInadequada[i].ToString() == senhaInadequada[i].ToString().ToLower()) {
-                    val_Minuscula = true;
+                if (Char.IsLetter(senhaInadequada[i])) {
+                    if (senhaInadequada[i].ToString() == senhaInadequada[i].ToString().ToLower()) {
+                        val_Minuscula = true;
+                    }
                 }
             }
 
             //Validacao de 1 maiuscula
             for (int i = 0; i < senhaInadequada.Length; i++) {
-                if (senhaInadequada[i].ToString() == senhaInadequada[i].ToString().ToUpper()) {
-                    val_Maiuscula = true;
+                if (Char.IsLetter(senhaInadequada[i])) {
+                    if (senhaInadequada[i].ToString() == senhaInadequada[i].ToString().ToUpper()) {
+                        val_Maiuscula = true;
+                    }
                 }
             }
 
@@ -131,7 +120,6 @@ namespace DesafioDeProgramacaoAcademiaCapgemini2022 {
                 }
             }
 
-            
             if (val_Caracter == false || val_Digitos == false || val_Minuscula == false
                 || val_Maiuscula == false || val_Especial == false) {
                 string validado = val_Caracter ? "Validado" : "Nao Validado";
@@ -153,15 +141,13 @@ namespace DesafioDeProgramacaoAcademiaCapgemini2022 {
 
                 validado = val_Especial ? "Validado" : "Nao Validado";
                 Console.WriteLine($"Validacao de C.Especial: {validado}");
-
             } else {
                 Console.WriteLine("Senha forte!");
             }
         }
 
         //Questão 03
-        
-        
+
         //Atividade incompleta por motivo insuficiente de conhecimento para resolver a problemática.
         public static void TerceiraQuestao(string palavra) {
             //Anagramas
@@ -192,7 +178,5 @@ namespace DesafioDeProgramacaoAcademiaCapgemini2022 {
                 Console.WriteLine($"{letrasIguais[i]}");
             }
         }
-
     }
 }
-
